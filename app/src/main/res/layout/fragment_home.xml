@@ -5,9 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daftar Pesanan"
+        android:textSize="20sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2sp"
+        android:background="@color/colorPrimaryDark"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_product"
+        android:id="@+id/rv_daftar_pesanan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="4dp"

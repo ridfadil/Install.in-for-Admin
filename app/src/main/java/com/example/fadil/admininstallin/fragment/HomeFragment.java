@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
         mLinearLayout = (LinearLayout) v.findViewById(R.id.pagesContainer);
         //setupSlider();
 
-        rvHome = (RecyclerView) v.findViewById(R.id.rv_product);
+        rvHome = (RecyclerView) v.findViewById(R.id.rv_daftar_pesanan);
 
         adapter = new DaftarPesanAdapter(getContext(), listPesan);
 

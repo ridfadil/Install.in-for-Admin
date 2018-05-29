@@ -11,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fadil.admininstallin.R;
+import com.example.fadil.admininstallin.adapter.HistoriPesanAdapter;
 import com.example.fadil.admininstallin.api.BaseApiService;
+import com.example.fadil.admininstallin.model.HistoriPesanan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +23,13 @@ import java.util.List;
  */
 public class HistoryFragment extends Fragment {
 
-    /*private RecyclerView rvHistory;
-    private HistoryAdapter adapter;
-    List<History> listHistory = new ArrayList<>();
+    private RecyclerView rvHistory;
+    private HistoriPesanAdapter adapter;
+    List<HistoriPesanan> listHistory = new ArrayList<>();
 
     ProgressDialog loading;
 
     BaseApiService apiService;
-*/
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -40,9 +41,9 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_history, container, false);
 
-/*        rvHistory = (RecyclerView) v.findViewById(R.id.rv_product);
+        rvHistory = (RecyclerView) v.findViewById(R.id.rv_history);
 
-        adapter = new HistoryAdapter(getContext(), listHistory);
+        adapter = new HistoriPesanAdapter(getContext(), listHistory);
 
 //        apiService = UtilsApi.getAPIService();
 
@@ -50,20 +51,19 @@ public class HistoryFragment extends Fragment {
         rvHistory.setLayoutManager(new LinearLayoutManager(getContext()));
         rvHistory.setAdapter(adapter);
 
-        refresh();*/
+        refresh();
 
         return v;
     }
 
-    /*public void refresh() {
+    public void refresh() {
         loading = ProgressDialog.show(getContext(), null, "Harap Tunggu...", true, false);
 
-        listHistory.add(new History("1", "Windows 10", "x64", "Rp. 20.000", "", "28 Januari 2018", "On Confirming"));
-        listHistory.add(new History("2", "Windows 8", "x86", "Rp. 20.000", "", "29 Januari 2018", "On Progress"));
-        listHistory.add(new History("3", "Windows 7", "x64", "Rp. 20.000", "", "30 Mei 2018", "On Progress"));
-        listHistory.add(new History("4", "Windows XP", "x86", "Rp. 20.000", "", "17 Agustus 2018", "Done"));
+        listHistory.add(new HistoriPesanan("1", "Windows 10", "x64", "Rp. 20.000", "", "28 Januari 2018", "27-02-2018","Fadil","Tania","Jl Raya Cinunuk no 54","On Progress"));
+        listHistory.add(new HistoriPesanan("2", "Linux", "x64", "Rp. 20.000", "", "28 Januari 2018", "27-02-2018","Fadil","Tania","Jl Raya Cinunuk no 54","On Progress"));
+        listHistory.add(new HistoriPesanan("2", "Linux", "x64", "Rp. 20.000", "", "28 Januari 2018", "27-02-2018","Fadil","Tania","Jl Raya Cinunuk no 54","On Progress"));
         adapter.notifyDataSetChanged();
         loading.dismiss();
-    }*/
+    }
 
 }

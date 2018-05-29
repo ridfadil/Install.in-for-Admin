@@ -6,21 +6,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.fadil.admininstallin.R;
-import com.example.fadil.admininstallin.model.DaftarPesanan;
 import com.example.fadil.admininstallin.model.HistoriPesanan;
 
 import java.util.List;
 
+import butterknife.BindView;
+
 public class HistoriPesanAdapter extends RecyclerView.Adapter<HistoriPesanAdapter.ViewHolder> {
 
 
+    CardView cvDaftarHistory;
     private Context context;
     private List<HistoriPesanan> listHistori;
 
@@ -45,32 +45,17 @@ public class HistoriPesanAdapter extends RecyclerView.Adapter<HistoriPesanAdapte
         Glide.with(context)
                 .load(pesan.getImageOs()) //ganti sama Model image
                 .placeholder(R.drawable.ic_launcher_background)
-                .into(holder.imageOS);
-        holder.namaKurir.setText(pesan.getNamaKurir());
-        holder.tglAmbil.setText(pesan.getTgTransaksi());
-        holder.tglSelesai.setText(pesan.getTglselesai());
-        holder.alamat.setText(pesan.getAlamat());
-        holder.txtNamaOS.setText(pesan.getNamaOs());
-        holder.txtTipeOS.setText(pesan.getTipeOs());
-        holder.txtHargaOS.setText(pesan.getHargaOs());
-        holder.cvPesan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "" + pesan.getIdHistori(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.terima.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "terima", Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.tolak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "tolak", Toast.LENGTH_SHORT).show();
-            }
-        });
+                .into(holder.tivImageOsHistory);
+        holder.tvKurirHistori.setText(pesan.getNamaKurir());
+        holder.tvNamaHistori.setText(pesan.getNamaPelanggan());
+        holder.tvHargaOsHistory.setText(pesan.getHargaOs());
+        holder.tvAlamatHistori.setText(pesan.getAlamat());
+        holder.tvProgressHistori.setText(pesan.getStatus());
+        holder.tvNamaOsHistory.setText(pesan.getNamaOs());
+        holder.tvTipeOsHistory.setText(pesan.getTipeOs());
+        holder.tvTanggalSekarangHistory.setText(pesan.getTgTransaksi());
+        holder.tvTanggalSelesaiHistory.setText(pesan.getTglselesai());
+
     }
 
     @Override
@@ -81,24 +66,24 @@ public class HistoriPesanAdapter extends RecyclerView.Adapter<HistoriPesanAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         private CardView cvPesan;
 
-        private TextView txtNamaOS, txtTipeOS, txtHargaOS, tglSelesai, alamat, tglAmbil, namaKurir;
-        private Button terima, tolak;
-        private ImageView imageOS;
+        private TextView tvNamaOsHistory,tvTipeOsHistory,tvTanggalSelesaiHistory,tvHargaOsHistory,tvAlamatHistori,tvNamaHistori,tvProgressHistori,tvKurirHistori,tvTanggalSekarangHistory;
+        private ImageView tivImageOsHistory;
+        private CardView cdView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tglSelesai = itemView.findViewById(R.id.tv_tanggal_selesai);
-            alamat = itemView.findViewById(R.id.tv_alamat_kirim);
-            tglAmbil = itemView.findViewById(R.id.tv_tgl_ambil);
-            namaKurir = itemView.findViewById(R.id.tv_nama_kurir);
-            terima = itemView.findViewById(R.id.btn_terima);
-            tolak = itemView.findViewById(R.id.btn_tolak);
-            cvPesan = itemView.findViewById(R.id.cv_daftar_pesanan);
-            txtNamaOS = itemView.findViewById(R.id.tv_nama_os);
-            txtTipeOS = itemView.findViewById(R.id.tv_tipe_os);
-            txtHargaOS = itemView.findViewById(R.id.tv_harga_os);
-            imageOS = itemView.findViewById(R.id.iv_image_os);
+            tvNamaOsHistory =itemView.findViewById(R.id.tv_nama_os_history);
+            tvTipeOsHistory = itemView.findViewById(R.id.tv_tipe_os_history);
+            tvTanggalSelesaiHistory = itemView.findViewById(R.id.tv_tanggal_selesai_history);
+            tvHargaOsHistory = itemView.findViewById(R.id.tv_harga_os_history);
+            tvAlamatHistori = itemView.findViewById(R.id.tv_alamat_histori);
+            tvNamaHistori = itemView.findViewById(R.id.tv_nama_histori);
+            tvProgressHistori = itemView.findViewById(R.id.tv_progress_histori);
+            tvKurirHistori = itemView.findViewById(R.id.tv_kurir_histori);
+            tvTanggalSekarangHistory = itemView.findViewById(R.id.tv_tanggal_sekarang_history);
+            tivImageOsHistory = itemView.findViewById(R.id.iv_image_os_history);
+
         }
     }
 }
